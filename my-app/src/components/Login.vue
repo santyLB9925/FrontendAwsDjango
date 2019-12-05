@@ -40,7 +40,7 @@ export default {
         }
     },methods:{
         ingresa(){
-           const path='http://ec2-3-87-68-235.compute-1.amazonaws.com/api/v1/login/'
+           const path='http://santiago173200.ddns.net/api/v1/login/'
             axios.post(path,{
                 username:this.username,
                 password:this.password

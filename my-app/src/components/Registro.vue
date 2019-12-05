@@ -97,7 +97,7 @@ export default{
                 'Authorization': 'Token ' + localStorage.getItem("token")
                 }
             }
-            const path='http://ec2-3-87-68-235.compute-1.amazonaws.com/api/v1/alumnos-registro/'
+            const path='http://santiago173200.ddns.net/api/v1/alumnos-registro/'
             axios.post(path,{
                 nombre:this.nombre,
                 apellidos:this.apellidos,

@@ -32,13 +32,12 @@
       hide-default-footer
     >
     <template v-slot:item.action="{ item }">
-      <v-btn color="primary" fab x-small dark @click="edit(item)" >
-              <v-icon>mdi-pencil</v-icon> 
-      </v-btn>
-      
-      <v-btn color="success" fab x-small dark @click="deleted(item)">
-              <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      <div>
+     <v-btn class="ma-2" x-small color="secondary" dark @click="editar(item)" style="width:57px;  ">Edit</v-btn>
+      </div>
+      <div>
+      <v-btn class="ma-2" x-small color="secondary" dark @click="deleted(item)">Delete</v-btn>
+      </div>
     </template>
     
     </v-data-table>
@@ -86,7 +85,7 @@ export default {
           'Authorization': 'Token ' + localStorage.getItem("token")
           }
         }
-           const path='http://ec2-3-87-68-235.compute-1.amazonaws.com/api/v1/alumnos/'
+           const path='http://santiago173200.ddns.net/api/v1/alumnos/'
             axios.get(path,config).then((response)=>{
                 this.items=response.data 
             })
@@ -105,7 +104,7 @@ export default {
         }
                     Swal.fire({
             title: '¿Estas seguro?',
-            text: "YEsto no se podrá revertir!",
+            text: "Y esto no se podrá revertir!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -113,7 +112,7 @@ export default {
             confirmButtonText: 'Si, eliminar'
             }).then((result) => {
             if (result.value) {
-                const path='http://ec2-3-87-68-235.compute-1.amazonaws.com/api/v1/alumnos/'+id
+                const path='http://santiago173200.ddns.net/api/v1/alumnos/'+id
                 axios.delete(path,config).then((response)=>{
                 console.log(response)
                 this.getAlumnos()
@@ -132,7 +131,7 @@ export default {
         })
 
     },
-    edit(item){
+    editar(item){
           const index = this.items.indexOf(item)
           const id = this.items[index]["id"]
           console.log(id)
